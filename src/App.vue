@@ -4,15 +4,12 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
+    <div class="container">
+      <nav class="flex items-center py-5 gap-5 mb-4">
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/favorites">Favoritos</RouterLink>
       </nav>
     </div>
   </header>
-
   <RouterView />
 </template>
