@@ -6,6 +6,7 @@ const baseImageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/s
 <template>
   <router-link
     class="rounded-lg bg-blue-500 p-4 block flex flex-col gap-4 hover:scale-[1.05] transition-transform relative"
+    :to="`/pokemon/${props.name}`"
   >
     <picture class="block aspect-square size-full border border-yellow-400 rounded-lg">
       <img

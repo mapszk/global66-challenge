@@ -13,7 +13,7 @@ const getPokemonId = (url) => url.split('/').filter(Boolean).pop()
 
 <template>
   <main class="container">
-    <h1 class="text-4xl font-semibold">Pokemones</h1>
+    <h1 class="text-4xl font-semibold text-yellow-500">Pokemones</h1>
     <div v-if="!isLoading" class="grid grid-cols-3 gap-5 py-12 pt-8">
       <PokemonCard
         v-for="pokemon in data.results"

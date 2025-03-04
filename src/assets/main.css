@@ -3,3 +3,11 @@
 .container {
   @apply w-11/12 max-w-[960px] mx-auto;
 }
+
+body {
+  @apply bg-blue-950;
+}
+
+*::selection {
+  @apply bg-blue-500;
+}
