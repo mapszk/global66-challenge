@@ -1,13 +1,18 @@
 @import 'tailwindcss';
 
+@theme {
+  --color-primary: #f22539;
+  --color-title: #353535;
+  --color-paragraph: #5e5e5e;
+  --color-placeholder: #bfbfbf;
+  --color-border: #e8e8e8;
+  --radius-md: 5px;
+}
+
 .container {
-  @apply w-11/12 max-w-[960px] mx-auto;
+  @apply w-11/12 max-w-[570px] mx-auto;
 }
 
 body {
-  @apply bg-blue-950;
-}
-
-*::selection {
-  @apply bg-blue-500;
+  @apply bg-[#F9F9F9];
 }

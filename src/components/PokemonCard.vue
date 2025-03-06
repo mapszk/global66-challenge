@@ -1,23 +1,25 @@
 <script setup>
+import { useModal } from 'vue-final-modal'
+import PokemonModal from './PokemonModal.vue'
+import FavoriteButton from './FavoriteButton.vue'
+
 const props = defineProps(['id', 'name'])
-const baseImageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+
+const { open } = useModal({
+  component: PokemonModal,
+  attrs: {
+    name: props.name,
+  },
+})
 </script>
 
 <template>
-  <router-link
-    class="rounded-lg bg-blue-500 p-4 block flex flex-col gap-4 hover:scale-[1.05] transition-transform relative"
+  <div
+    @click="open"
+    class="rounded-md cursor-pointer bg-white py-4 px-6 flex justify-between items-center min-h-[60px] hover:scale-[1.05] transition-transform relative"
     :to="`/pokemon/${props.name}`"
   >
-    <picture class="block aspect-square size-full border border-yellow-400 rounded-lg">
-      <img
-        :src="baseImageUrl + props.id + '.png'"
-        :alt="props.name + 'image'"
-        class="object-contain size-full"
-      />
-    </picture>
-    <button class="rounded-full size-8 bg-yellow-500 absolute top-8 right-8">+</button>
-    <span class="bg-white px-4 py-2 rounded-lg capitalize text-lg font-medium">{{
-      props.name
-    }}</span>
-  </router-link>
+    <span class="capitalize text-[22px] text-title font-medium">{{ props.name }}</span>
+    <FavoriteButton :name="props.name" />
+  </div>
 </template>
