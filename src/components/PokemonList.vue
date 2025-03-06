@@ -5,6 +5,7 @@ import { getPokemonId } from '@/utils/getPokemonId'
 import { ref } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
 import { fetchData } from '@/hooks/useFetchData'
+import Loader from './Loader.vue'
 
 const page = ref(0)
 const { isLoading, data } = useQuery({
@@ -21,7 +22,10 @@ const prevPage = () => {
 </script>
 
 <template>
-  <div v-if="!isLoading" class="flex flex-col gap-2.5">
+  <div v-if="isLoading" class="min-h-[calc(100vh-250px)] flex items-center justify-center">
+    <Loader />
+  </div>
+  <div v-else class="flex flex-col gap-2.5">
     <PokemonCard
       v-for="pokemon in data.results"
       :key="pokemon.name"

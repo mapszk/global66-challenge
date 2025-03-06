@@ -7,6 +7,17 @@
   --color-placeholder: #bfbfbf;
   --color-border: #e8e8e8;
   --radius-md: 5px;
+
+  --animate-loader: loader 1s ease-in-out infinite alternate;
+
+  @keyframes loader {
+    0% {
+      transform: scale(75%) rotate(-360deg);
+    }
+    100% {
+      transform: scale(100%) rotate(360deg);
+    }
+  }
 }
 
 .container {
