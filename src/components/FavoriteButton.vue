@@ -1,16 +1,19 @@
 <script setup>
 import { useFavoritesStore } from '@/stores/favorites'
 import { computed } from 'vue'
+import Star from './icons/star.vue'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps(['name'])
-const { favorites, removeFromFavorites, addToFavorites } = useFavoritesStore()
+const store = useFavoritesStore()
+const { removeFromFavorites, addToFavorites } = useFavoritesStore()
+const { favorites } = storeToRefs(store)
 
 const isInFavorite = computed(() => {
-  return favorites.find((p) => p.name === props.name)
+  return Boolean(favorites.value.find((p) => p === props.name))
 })
 const toggleFavorite = (evt) => {
   evt.stopPropagation()
-  alert(props.name)
   if (isInFavorite.value) removeFromFavorites(props.name)
   else addToFavorites(props.name)
 }
@@ -19,9 +22,12 @@ const toggleFavorite = (evt) => {
 <template>
   <button
     @click="toggleFavorite"
-    class="rounded-full size-11 bg-[#F5F5F5] text-placeholder flex items-center justify-center cursor-pointer"
+    class="rounded-full size-11 bg-[#f5f5f5] flex items-center justify-center cursor-pointer"
     aria-label="Add to favorites"
   >
-    <Star :class="!isInFavorite ? 'grayscale-100 size-7' : 'size-7'" />
+    <Star
+      class="cursor-pointer size-6 text-placeholder"
+      :class="isInFavorite && '!text-[#ECA539]'"
+    />
   </button>
 </template>
