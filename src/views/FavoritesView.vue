@@ -12,7 +12,7 @@ const { favorites } = storeToRefs(store)
 <template>
   <main class="container py-8">
     <SearchBar class="mb-10" />
-    <div class="flex flex-col gap-2.5 min-h-[calc(100vh-250px)]">
+    <div class="flex flex-col gap-2.5 min-h-[calc(100vh-200px)]">
       <PokemonCard
         v-for="pokemon in favorites"
         :key="pokemon.name"

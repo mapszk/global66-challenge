@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
 import List from './icons/List.vue'
-import Star from './icons/star.vue'
+import Star from './icons/Star.vue'
+
+const route = useRoute()
 </script>
 
 <template>
@@ -8,14 +11,16 @@ import Star from './icons/star.vue'
     <div class="container flex items-center gap-5">
       <router-link
         to="/"
-        class="bg-primary rounded-full text-white text-[22px] h-11 w-full flex justify-center items-center gap-3"
+        class="rounded-full text-white text-[22px] h-11 w-full flex justify-center items-center gap-3"
+        :class="route.path === '/' ? 'bg-primary' : 'bg-placeholder'"
       >
         <List class="size-5" />
         All
       </router-link>
       <router-link
         to="/favorites"
-        class="bg-primary rounded-full text-white text-[22px] h-11 w-full flex justify-center items-center gap-3"
+        class="rounded-full text-white text-[22px] h-11 w-full flex justify-center items-center gap-3"
+        :class="route.path === '/favorites' ? 'bg-primary' : 'bg-placeholder'"
       >
         <Star class="size-5" />
         Favorites

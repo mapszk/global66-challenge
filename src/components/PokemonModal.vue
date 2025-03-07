@@ -7,8 +7,10 @@ import { useQuery } from '@tanstack/vue-query'
 import { fetchData } from '@/hooks/useFetchData'
 import { endpoints } from '@/services/api'
 import Loader from './Loader.vue'
+import { useToast } from 'vue-toast-notification'
 
 const props = defineProps(['name', 'url'])
+const toast = useToast()
 
 const { isLoading, data } = useQuery({
   queryKey: ['pokemonByName', props.name],
@@ -16,8 +18,17 @@ const { isLoading, data } = useQuery({
 })
 
 const getStat = (statName) => {
-  if (isLoading || !data.value) return
-  else return data.value.stats.find((s) => s.stat.name === statName)
+  return data.value.stats.find((s) => s.stat.name === statName)
+}
+const copy = () => {
+  const text = `
+    Name: ${props.name}
+    Weight: ${getStat('weight')}
+    Height: ${getStat('height')}
+    Types: 
+  `
+  window.navigator.clipboard.writeText(text)
+  toast.success('Pokemon copied to clipboard')
 }
 </script>
 
@@ -81,7 +92,7 @@ const getStat = (statName) => {
           </div>
 
           <div class="flex justify-between items-center">
-            <Button>Share to my friends</Button>
+            <Button @click="copy">Share to my friends</Button>
             <FavoriteButton :name="props.name" :url="props.url" />
           </div>
         </div>

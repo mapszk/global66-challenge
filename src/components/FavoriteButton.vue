@@ -3,8 +3,10 @@ import { useFavoritesStore } from '@/stores/favorites'
 import { computed } from 'vue'
 import Star from './icons/star.vue'
 import { storeToRefs } from 'pinia'
+import { useToast } from 'vue-toast-notification'
 
 const props = defineProps(['name', 'url'])
+const toast = useToast()
 const store = useFavoritesStore()
 const { removeFromFavorites, addToFavorites } = useFavoritesStore()
 const { favorites } = storeToRefs(store)
@@ -14,8 +16,13 @@ const isInFavorite = computed(() => {
 })
 const toggleFavorite = (evt) => {
   evt.stopPropagation()
-  if (isInFavorite.value) removeFromFavorites(props.name)
-  else addToFavorites({ name: props.name, url: props.url })
+  if (isInFavorite.value) {
+    removeFromFavorites(props.name)
+    toast.error(`${props.name[0].toUpperCase() + props.name.slice(1)} removed from your favorites`)
+  } else {
+    addToFavorites({ name: props.name, url: props.url })
+    toast.success(`${props.name[0].toUpperCase() + props.name.slice(1)} added to your favorites`)
+  }
 }
 </script>
 
