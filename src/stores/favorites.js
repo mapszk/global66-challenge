@@ -3,11 +3,11 @@ import { defineStore } from 'pinia'
 
 export const useFavoritesStore = defineStore('favorites', () => {
   const favorites = ref([])
-  const addToFavorites = (name) => {
-    favorites.value = [...favorites.value, name]
+  const addToFavorites = (pokemon) => {
+    favorites.value = [...favorites.value, pokemon]
   }
   const removeFromFavorites = (name) => {
-    favorites.value = favorites.value.filter((p) => p !== name)
+    favorites.value = favorites.value.filter((p) => p.name !== name)
   }
 
   onMounted(() => {

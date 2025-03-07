@@ -3,12 +3,13 @@ import { useModal } from 'vue-final-modal'
 import PokemonModal from './PokemonModal.vue'
 import FavoriteButton from './FavoriteButton.vue'
 
-const props = defineProps(['id', 'name'])
+const props = defineProps(['id', 'name', 'url'])
 
 const { open } = useModal({
   component: PokemonModal,
   attrs: {
     name: props.name,
+    url: props.url,
   },
 })
 </script>
@@ -20,6 +21,6 @@ const { open } = useModal({
     :to="`/pokemon/${props.name}`"
   >
     <span class="capitalize text-[22px] text-title font-medium">{{ props.name }}</span>
-    <FavoriteButton :name="props.name" />
+    <FavoriteButton :name="props.name" :url="props.url" />
   </div>
 </template>

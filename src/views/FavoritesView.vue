@@ -2,19 +2,23 @@
 import PokemonCard from '@/components/PokemonCard.vue'
 import { getPokemonId } from '@/utils/getPokemonId'
 import { useFavoritesStore } from '@/stores/favorites'
+import { storeToRefs } from 'pinia'
+import SearchBar from '@/components/SearchBar.vue'
 
-const { favorites } = useFavoritesStore()
+const store = useFavoritesStore()
+const { favorites } = storeToRefs(store)
 </script>
 
 <template>
-  <main class="container">
-    <h1 class="text-4xl font-semibold text-yellow-500">Favoritos</h1>
-    <div v-if="!isLoading" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 py-12 pt-8">
+  <main class="container py-8">
+    <SearchBar class="mb-10" />
+    <div class="flex flex-col gap-2.5 min-h-[calc(100vh-250px)]">
       <PokemonCard
         v-for="pokemon in favorites"
         :key="pokemon.name"
         :name="pokemon.name"
         :id="getPokemonId(pokemon.url)"
+        :url="pokemon.url"
       ></PokemonCard>
     </div>
   </main>

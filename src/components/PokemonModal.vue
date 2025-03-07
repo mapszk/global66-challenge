@@ -8,7 +8,7 @@ import { fetchData } from '@/hooks/useFetchData'
 import { endpoints } from '@/services/api'
 import Loader from './Loader.vue'
 
-const props = defineProps(['name'])
+const props = defineProps(['name', 'url'])
 
 const { isLoading, data } = useQuery({
   queryKey: ['pokemonByName', props.name],
@@ -82,7 +82,7 @@ const getStat = (statName) => {
 
           <div class="flex justify-between items-center">
             <Button>Share to my friends</Button>
-            <FavoriteButton :name="props.name" />
+            <FavoriteButton :name="props.name" :url="props.url" />
           </div>
         </div>
       </div>

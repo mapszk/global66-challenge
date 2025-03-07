@@ -4,18 +4,18 @@ import { computed } from 'vue'
 import Star from './icons/star.vue'
 import { storeToRefs } from 'pinia'
 
-const props = defineProps(['name'])
+const props = defineProps(['name', 'url'])
 const store = useFavoritesStore()
 const { removeFromFavorites, addToFavorites } = useFavoritesStore()
 const { favorites } = storeToRefs(store)
 
 const isInFavorite = computed(() => {
-  return Boolean(favorites.value.find((p) => p === props.name))
+  return Boolean(favorites.value.find((p) => p.name === props.name))
 })
 const toggleFavorite = (evt) => {
   evt.stopPropagation()
   if (isInFavorite.value) removeFromFavorites(props.name)
-  else addToFavorites(props.name)
+  else addToFavorites({ name: props.name, url: props.url })
 }
 </script>
 

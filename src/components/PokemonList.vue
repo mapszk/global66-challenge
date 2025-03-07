@@ -31,6 +31,7 @@ const prevPage = () => {
       :key="pokemon.name"
       :name="pokemon.name"
       :id="getPokemonId(pokemon.url)"
+      :url="pokemon.url"
     ></PokemonCard>
     <div class="flex justify-between items-center mt-4">
       <button
