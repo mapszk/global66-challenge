@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { VueFinalModal } from 'vue-final-modal'
 import FavoriteButton from './FavoriteButton.vue'
-import Button from './Button.vue'
-import Cross from './icons/Cross.vue'
+import Button from '@/components/common/Button.vue'
+import Cross from '@/components/common/icons/Cross.vue'
 import { useQuery } from '@tanstack/vue-query'
 import { fetchData } from '@/hooks/useFetchData'
 import { endpoints } from '@/services/api'
-import Loader from './Loader.vue'
+import Loader from '@/components/common/Loader.vue'
 import { useToast } from 'vue-toast-notification'
 
 const props = defineProps(['name', 'url'])

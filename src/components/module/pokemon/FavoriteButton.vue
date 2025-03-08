@@ -1,7 +1,7 @@
 <script setup>
 import { useFavoritesStore } from '@/stores/favorites'
 import { computed } from 'vue'
-import Star from './icons/star.vue'
+import Star from '@/components/common/icons/Star.vue'
 import { storeToRefs } from 'pinia'
 import { useToast } from 'vue-toast-notification'
 

@@ -1,6 +1,6 @@
 <script setup>
-import PokemonList from '@/components/PokemonList.vue'
-import Welcome from '@/components/Welcome.vue'
+import PokemonList from '@/components/module/pokemon/PokemonList.vue'
+import Welcome from '@/components/common/Welcome.vue'
 import { useWelcomeStore } from '@/stores/welcome'
 import { storeToRefs } from 'pinia'
 

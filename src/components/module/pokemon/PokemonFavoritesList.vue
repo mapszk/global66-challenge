@@ -1,10 +1,10 @@
 <script setup>
-import PokemonCard from '@/components/PokemonCard.vue'
-import EmptyResults from '@/components/EmptyResults.vue'
+import PokemonCard from './PokemonCard.vue'
+import EmptyResults from '@/components/common/EmptyResults.vue'
 import { getPokemonId } from '@/utils/getPokemonId'
 import { useFavoritesStore } from '@/stores/favorites'
 import { storeToRefs } from 'pinia'
-import SearchBar from '@/components/SearchBar.vue'
+import SearchBar from '@/components/common/SearchBar.vue'
 import { computed, ref } from 'vue'
 
 const store = useFavoritesStore()
@@ -30,5 +30,5 @@ const updateFilter = (value) => {
       :url="pokemon.url"
     ></PokemonCard>
   </div>
-  <EmptyResults v-else @reset="() => updateFilter('')" />
+  <EmptyResults v-else-if="favorites.length" @reset="() => updateFilter('')" />
 </template>

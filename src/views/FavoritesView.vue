@@ -1,5 +1,5 @@
 <script setup>
-import PokemonFavoritesList from '@/components/PokemonFavoritesList.vue'
+import PokemonFavoritesList from '@/components/module/pokemon/PokemonFavoritesList.vue'
 </script>
 
 <template>

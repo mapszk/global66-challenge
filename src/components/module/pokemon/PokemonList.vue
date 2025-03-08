@@ -1,14 +1,14 @@
 <script setup>
 import { endpoints } from '@/services/api'
-import SearchBar from '@/components/SearchBar.vue'
-import EmptyResults from '@/components/EmptyResults.vue'
-import PokemonCard from '@/components/PokemonCard.vue'
+import SearchBar from '@/components/common/SearchBar.vue'
+import EmptyResults from '@/components/common/EmptyResults.vue'
+import PokemonCard from './PokemonCard.vue'
 import { getPokemonId } from '@/utils/getPokemonId'
 import { computed, ref } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
 import { fetchData } from '@/hooks/useFetchData'
-import Loader from './Loader.vue'
-import Pagination from './Pagination.vue'
+import Loader from '@/components/common/Loader.vue'
+import Pagination from '@/components/common/Pagination.vue'
 
 const page = ref(0)
 const limit = ref(10)
