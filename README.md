@@ -1,6 +1,7 @@
 # global66-challenge
 
 Esta es mi propuesta para la prueba técnica de Global66.
+Link de la web en Vercel: https://global66-challenge.vercel.app
 
 Librerías utilizadas:
 
