@@ -1,6 +1,17 @@
 # global66-challenge
 
-This is my proposal for the Global66 front-end dev challenge.
+Esta es mi propuesta para la prueba técnica de Global66.
+
+Librerías utilizadas:
+
+- TailwindCSS
+- Pinia
+- TanstackQuery
+- VueFinalModal
+- VueToastNotification
+
+Me pareció mejor mostrar los pokemons favoritos en una ruta distinta, además estos se guardan en localStorage. También decidí añadir una notificación para darle feedback al usuario de cuando agrega o elimina un pokemon de favoritos.
+Debido a la gran cantidad de pokemones añadí un paginado pero no encontré en la documentación de la PokeAPI algún parámetro para poder filtrar los pokemones en el endpoint, de modo que el listado general solo filtra los pokemones de la página donde está el usuario.
 
 ## Project Setup
 
