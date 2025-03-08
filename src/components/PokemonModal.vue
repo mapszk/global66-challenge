@@ -54,7 +54,7 @@ const copy = () => {
         <div class="bg-white p-4 md:p-8 text-paragraph space-y-4">
           <div>
             <span class="text-2xl pb-4 block border-b border-border">
-              <span class="font-medium">Name: </span>
+              <span class="font-bold">Name: </span>
               <span class="capitalize">
                 {{ props.name }}
               </span>
@@ -62,7 +62,7 @@ const copy = () => {
           </div>
           <div>
             <span class="text-2xl pb-4 block border-b border-border">
-              <span class="font-medium">Weight: </span>
+              <span class="font-bold">Weight: </span>
               <span class="capitalize">
                 {{ data.weight / 10 + 'kg' }}
               </span>
@@ -70,7 +70,7 @@ const copy = () => {
           </div>
           <div>
             <span class="text-2xl pb-4 block border-b border-border">
-              <span class="font-medium">Height: </span>
+              <span class="font-bold">Height: </span>
               <span class="capitalize">
                 {{ data.height + 'cm' }}
               </span>
@@ -78,7 +78,7 @@ const copy = () => {
           </div>
           <div>
             <span class="text-2xl pb-4 block border-b border-border">
-              <span class="font-medium">Types: </span>
+              <span class="font-bold">Types: </span>
               <span class="capitalize">
                 {{
                   data.types

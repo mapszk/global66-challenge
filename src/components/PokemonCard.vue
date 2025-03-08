@@ -20,7 +20,7 @@ const { open } = useModal({
     class="rounded-md cursor-pointer bg-white py-4 px-6 flex justify-between items-center min-h-[60px] hover:scale-[1.05] transition-transform relative"
     :to="`/pokemon/${props.name}`"
   >
-    <span class="capitalize text-[22px] text-title font-medium">{{ props.name }}</span>
+    <span class="capitalize text-[22px] text-title font-bold">{{ props.name }}</span>
     <FavoriteButton :name="props.name" :url="props.url" />
   </div>
 </template>

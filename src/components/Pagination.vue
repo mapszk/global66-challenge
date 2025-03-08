@@ -8,14 +8,14 @@ const emit = defineEmits(['onNextPage', 'onPreviousPage'])
     <button
       @click="emit('onPreviousPage')"
       v-if="props.showPrevious"
-      class="text-paragraph rounded-md bg-white py-2 px-3 cursor-pointer font-medium mr-auto"
+      class="text-paragraph rounded-md bg-white py-2 px-3 cursor-pointer font-bold mr-auto"
     >
       Previous
     </button>
     <button
       @click="emit('onNextPage')"
       v-if="props.showNext"
-      class="text-paragraph rounded-md bg-white py-2 px-3 cursor-pointer font-medium ml-auto"
+      class="text-paragraph rounded-md bg-white py-2 px-3 cursor-pointer font-bold ml-auto"
     >
       Next
     </button>
