@@ -1,7 +1,6 @@
 <script setup>
 import PokemonCard from './PokemonCard.vue'
 import EmptyResults from '@/components/common/EmptyResults.vue'
-import { getPokemonId } from '@/utils/getPokemonId'
 import { useFavoritesStore } from '@/stores/favorites'
 import { storeToRefs } from 'pinia'
 import SearchBar from '@/components/common/SearchBar.vue'
@@ -26,7 +25,6 @@ const updateFilter = (value) => {
       v-for="pokemon in filteredFavorites"
       :key="pokemon.name"
       :name="pokemon.name"
-      :id="getPokemonId(pokemon.url)"
       :url="pokemon.url"
     ></PokemonCard>
   </div>

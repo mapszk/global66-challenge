@@ -3,7 +3,6 @@ import { endpoints } from '@/services/api'
 import SearchBar from '@/components/common/SearchBar.vue'
 import EmptyResults from '@/components/common/EmptyResults.vue'
 import PokemonCard from './PokemonCard.vue'
-import { getPokemonId } from '@/utils/getPokemonId'
 import { computed, ref } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
 import { fetchData } from '@/hooks/useFetchData'
@@ -44,7 +43,6 @@ const prevPage = () => {
         v-for="pokemon in filteredResults"
         :key="pokemon.name"
         :name="pokemon.name"
-        :id="getPokemonId(pokemon.url)"
         :url="pokemon.url"
       ></PokemonCard>
       <Pagination

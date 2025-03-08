@@ -3,7 +3,7 @@ import { useModal } from 'vue-final-modal'
 import PokemonModal from './PokemonModal.vue'
 import FavoriteButton from './FavoriteButton.vue'
 
-const props = defineProps(['id', 'name', 'url'])
+const props = defineProps(['name', 'url'])
 
 const { open } = useModal({
   component: PokemonModal,
