@@ -17,16 +17,10 @@ const { isLoading, data } = useQuery({
   queryFn: () => fetchData(endpoints.pokemonByName(props.name)),
 })
 
-const getStat = (statName) => {
-  return data.value.stats.find((s) => s.stat.name === statName)
-}
 const copy = () => {
-  const text = `
-    Name: ${props.name}
-    Weight: ${getStat('weight')}
-    Height: ${getStat('height')}
-    Types: 
-  `
+  const text = `Name: ${props.name[0].toUpperCase() + props.name.slice(1)}\nWeight: ${data.value.weight}\nHeight: ${data.value.height}\nTypes: ${data.value.types
+    .map((t) => `${t.type.name[0].toUpperCase()}${t.type.name.slice(1)}`)
+    .join(', ')}`
   window.navigator.clipboard.writeText(text)
   toast.success('Pokemon copied to clipboard')
 }
@@ -70,7 +64,7 @@ const copy = () => {
             <span class="text-2xl pb-4 block border-b border-border">
               <span class="font-medium">Weight: </span>
               <span class="capitalize">
-                {{ getStat('weight') }}
+                {{ data.weight / 10 + 'kg' }}
               </span>
             </span>
           </div>
@@ -78,7 +72,7 @@ const copy = () => {
             <span class="text-2xl pb-4 block border-b border-border">
               <span class="font-medium">Height: </span>
               <span class="capitalize">
-                {{ getStat('height') }}
+                {{ data.height + 'cm' }}
               </span>
             </span>
           </div>
@@ -86,7 +80,11 @@ const copy = () => {
             <span class="text-2xl pb-4 block border-b border-border">
               <span class="font-medium">Types: </span>
               <span class="capitalize">
-                {{ getStat('weight') }}
+                {{
+                  data.types
+                    .map((t) => `${t.type.name[0].toUpperCase()}${t.type.name.slice(1)}`)
+                    .join(', ')
+                }}
               </span>
             </span>
           </div>
