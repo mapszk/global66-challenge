@@ -1,5 +1,18 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import Search from './icons/Search.vue'
+
+const props = defineProps(['value'])
+const emits = defineEmits(['onChange'])
+const searchValue = ref('')
+
+watch(
+  () => props.value,
+  (newValue) => {
+    searchValue.value = newValue
+  },
+)
+watch(searchValue, (newValue) => emits('onChange', newValue))
 </script>
 
 <template>
@@ -8,6 +21,7 @@ import Search from './icons/Search.vue'
     <input
       type="text"
       placeholder="Search"
+      v-model="searchValue"
       class="rounded-md block w-full py-4 px-6 pl-14 placeholder:text-placeholder focus:outline-primary"
     />
   </div>

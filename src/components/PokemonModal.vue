@@ -18,7 +18,7 @@ const { isLoading, data } = useQuery({
 })
 
 const copy = () => {
-  const text = `Name: ${props.name[0].toUpperCase() + props.name.slice(1)}\nWeight: ${data.value.weight}\nHeight: ${data.value.height}\nTypes: ${data.value.types
+  const text = `Name: ${props.name[0].toUpperCase() + props.name.slice(1)}, Weight: ${data.value.weight}, Height: ${data.value.height}, Types: ${data.value.types
     .map((t) => `${t.type.name[0].toUpperCase()}${t.type.name.slice(1)}`)
     .join(', ')}`
   window.navigator.clipboard.writeText(text)

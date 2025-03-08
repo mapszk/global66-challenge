@@ -1,5 +1,4 @@
 <script setup>
-import SearchBar from '@/components/SearchBar.vue'
 import PokemonList from '@/components/PokemonList.vue'
 import Welcome from '@/components/Welcome.vue'
 import { useWelcomeStore } from '@/stores/welcome'
@@ -11,8 +10,7 @@ const { showWelcome } = storeToRefs(store)
 
 <template>
   <Welcome v-if="showWelcome" />
-  <main class="container py-8">
-    <SearchBar class="mb-10" />
+  <main class="container py-8 min-h-[calc(100vh-80px)]">
     <PokemonList />
   </main>
 </template>

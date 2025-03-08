@@ -7,8 +7,8 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="shadow-[0px_-5px_4px_0px_#0000000D] bg-white py-5 sticky bottom-0">
-    <div class="container flex items-center gap-5">
+  <div class="shadow-[0px_-5px_4px_0px_#0000000D] bg-white h-[80px] sticky bottom-0">
+    <div class="container flex items-center h-full gap-5">
       <router-link
         to="/"
         class="rounded-full text-white text-[22px] h-11 w-full flex justify-center items-center gap-3"
